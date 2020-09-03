@@ -192,11 +192,19 @@ function makeId(descriptor, key) {
 }
 
 function guessRdfType(name) {
+  if (!name) {
+    return ''
+  }
+
   switch (name) {
     case 't-statistic':
       return 'http://purl.obolibrary.org/obo/STATO_0000176'
 
     default:
+      if (name.match(/\bgene\s+name\b/i)) {
+        return 'http://purl.obolibrary.org/obo/NCIT_C164806'
+      }
+
       return ''
   }
 }
