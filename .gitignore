@@ -50,5 +50,3 @@ jspm_packages
 dist/
 lib/
 package-lock.json
-.cache/
-.parcel-cache/
