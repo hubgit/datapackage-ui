@@ -1178,7 +1178,7 @@ select[multiple].input-lg {
     line-height: 1.4; }
     .data-cards .card .inner {
       display: block;
-      height: 320px;
+      height: 348px;
       overflow: hidden;
       margin: 20px 0 0 20px;
       position: relative;
@@ -1353,6 +1353,7 @@ select[multiple].input-lg {
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
+        align-items: center;
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;
             -ms-flex-direction: column;

@@ -116,6 +116,37 @@ function EditorFieldPure({
             ))}
           </select>
         )}
+
+        {/* RDF type */}
+        <label htmlFor={makeId(descriptor, 'rdfType')}>Data RDF Type</label>
+        {!getRdfTypes(descriptor.type) && (
+          <input
+            type="url"
+            id={makeId(descriptor, 'rdfType')}
+            defaultValue={descriptor.rdfType}
+            onBlur={partial(onUpdateChange, 'rdfType')}
+            placeholder={'http://'}
+          />
+        )}
+        {!!getRdfTypes(descriptor.type) && (
+          <select
+            id={makeId(descriptor, 'rdfType')}
+            data-id="list-container"
+            className="form-control list-container"
+            autoComplete="off"
+            defaultValue={descriptor.rdfType || guessRdfType(descriptor.name)}
+            value={descriptor.rdfType || guessRdfType(descriptor.name)}
+            onChange={partial(onUpdateChange, 'rdfType')}
+          >
+            <option value="">Choose a type</option>
+            <option value="">------------</option>
+            {getRdfTypes(descriptor.type).map((uri) => (
+              <option key={uri} value={uri}>
+                {rdfTypeLabel(uri)}
+              </option>
+            ))}
+          </select>
+        )}
       </div>
     </div>
   )
@@ -152,8 +183,28 @@ function getFormat(type) {
   return config.FIELD_TYPES_AND_FORMATS[type]
 }
 
+function getRdfTypes(type) {
+  return config.FIELD_TYPES_AND_RDF_TYPES[type]
+}
+
 function makeId(descriptor, key) {
   return `field-${descriptor._key}-${key}`
+}
+
+function guessRdfType(name) {
+  switch (name) {
+    case 't-statistic':
+      return 'http://purl.obolibrary.org/obo/STATO_0000176'
+
+    default:
+      return ''
+  }
+}
+
+function rdfTypeLabel(uri) {
+  const rdfType = config.RDF_TYPES[uri]
+
+  return rdfType ? rdfType.label : ''
 }
 
 // Components

@@ -18,6 +18,31 @@ const FIELD_TYPES_AND_FORMATS = {
   geojson: ['default', 'topojson'],
   any: ['default'],
 }
+const RDF_TYPES = {
+  'http://purl.obolibrary.org/obo/STATO_0000176': {
+    label: 't-statistic',
+  },
+  'http://purl.obolibrary.org/obo/NCIT_C164806': {
+    label: 'Gene Name',
+  },
+}
+const FIELD_TYPES_AND_RDF_TYPES = {
+  string: Object.keys(RDF_TYPES),
+  number: false,
+  integer: false,
+  boolean: false,
+  object: false,
+  array: false,
+  date: false,
+  time: false,
+  datetime: false,
+  year: false,
+  yearmonth: false,
+  duration: false,
+  geopoint: false,
+  geojson: false,
+  any: false,
+}
 const OPEN_DEFINITION_LICENSES = {
   'CC0-1.0': {
     name: 'CC0-1.0',
@@ -71,5 +96,7 @@ const OPEN_DEFINITION_LICENSES = {
 module.exports = {
   EDITOR_UPLOAD_ROWS_LIMIT,
   FIELD_TYPES_AND_FORMATS,
+  FIELD_TYPES_AND_RDF_TYPES,
   OPEN_DEFINITION_LICENSES,
+  RDF_TYPES,
 }

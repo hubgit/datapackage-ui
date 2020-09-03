@@ -227,6 +227,7 @@ function processState(state) {
       field.name = field.name || `field${fieldIndex + 1}`
       field.type = field.type || 'string'
       field.format = field.format || 'default'
+      // TODO: default field.rdfType?
     }
   }
 
