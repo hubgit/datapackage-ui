@@ -134,7 +134,7 @@ function EditorFieldPure({
             data-id="list-container"
             className="form-control list-container"
             autoComplete="off"
-            defaultValue={descriptor.rdfType || guessRdfType(descriptor.name)}
+            // defaultValue={descriptor.rdfType || guessRdfType(descriptor.name)}
             value={descriptor.rdfType || guessRdfType(descriptor.name)}
             onChange={partial(onUpdateChange, 'rdfType')}
           >
