@@ -1,4 +1,4 @@
-const uuidv4 = require('uuid/v4')
+const { v4: uuidv4 } = require('uuid')
 const { Schema } = require('tableschema')
 const { Profile } = require('datapackage')
 // TODO: it's not public on the datapackage level
